@@ -1,4 +1,4 @@
-Wordwrap ![Travis Build Status][travis]
+Wordwrap [![Travis Build Status][travis-badge]][travis-build]
 =======================================
 
 Ultra-simple word-wrapping library for Golang. Unsophisticated by design.
@@ -56,4 +56,5 @@ Value of `synopsis`:
 
 MIT
 
-[travis]: https://img.shields.io/travis/eidolon/wordwrap.svg
+[travis-badge]: https://img.shields.io/travis/eidolon/wordwrap.svg
+[travis-build]: https://travis-ci.org/eidolon/wordwrap
