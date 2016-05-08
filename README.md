@@ -5,9 +5,13 @@ Ultra-simple word-wrapping library for Golang. Unsophisticated by design.
 
 ## Installation
 
+Installation via `go get`:
+
 ```
 $ go get github.com/eidolon/wordwrap
 ```
+
+Then simply import the `github.com/eidolon/wordwrap` package.
 
 ## Usage
 
