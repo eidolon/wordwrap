@@ -3,7 +3,8 @@ Wordwrap [![Travis Build Status][travis-badge]][travis-build]
 
 Ultra-simple word-wrapping library for Golang. Unsophisticated by design.
 
-## Installation
+Installation
+------------
 
 Installation via `go get`:
 
@@ -13,7 +14,8 @@ $ go get github.com/eidolon/wordwrap
 
 Then simply import the `github.com/eidolon/wordwrap` package.
 
-## Usage
+Usage
+-----
 
 Documentation: https://godoc.org/github.com/eidolon/wordwrap
 
@@ -56,7 +58,8 @@ Value of `synopsis`:
            several new lines
 ```
 
-## License
+License
+-------
 
 MIT
 
