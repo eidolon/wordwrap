@@ -13,6 +13,13 @@ func TestWrapper(t *testing.T) {
 		input      string
 		expected   string
 	}{
+		// With no input
+		{
+			4,
+			false,
+			"",
+			"",
+		},
 		// When not breaking words
 		// Should wrap text so words fit on lines with the given limit
 		{
@@ -56,6 +63,13 @@ func TestWrapper(t *testing.T) {
 			true,
 			"Testtext",
 			"T\ne\ns\nt\nt\ne\nx\nt",
+		},
+		// Should not break words if no words are too long
+		{
+			4,
+			true,
+			"Test text",
+			"Test\ntext",
 		},
 		// Slightly more realistic data
 		// Should be broken properly
