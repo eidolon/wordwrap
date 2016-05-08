@@ -6,6 +6,59 @@ import (
 	"github.com/eidolon/wordwrap"
 )
 
+func TestIndent(t *testing.T) {
+	tests := []struct {
+		input     string
+		prefix    string
+		prefixAll bool
+		expected  string
+	}{
+		// When testing with no input
+		{
+			"",
+			"",
+			false,
+			"",
+		},
+		// When not prefixing all lines
+		// Should apply the prefix to the first line
+		{
+			"Test text\nTest text\nTest text",
+			"First line",
+			false,
+			"First lineTest text\n          Test text\n          Test text",
+		},
+		// Should allow prefixes to simply be spaces
+		{
+			"Test text\nTest text",
+			"  ",
+			false,
+			"  Test text\n  Test text",
+		},
+		// When prefixing all lines
+		// Should apply the prefix to all lines
+		{
+			"Test text\nTest text\nTest text",
+			"First line",
+			true,
+			"First lineTest text\nFirst lineTest text\nFirst lineTest text",
+		},
+	}
+
+	for i, test := range tests {
+		actual := wordwrap.Indent(test.input, test.prefix, test.prefixAll)
+
+		if actual != test.expected {
+			t.Fatalf(
+				"Result for case %d did not match expected result.\nExpected:\n%s\nActual:\n%s\n",
+				i+1,
+				test.expected,
+				actual,
+			)
+		}
+	}
+}
+
 func TestWrapper(t *testing.T) {
 	tests := []struct {
 		limit      int
@@ -13,7 +66,7 @@ func TestWrapper(t *testing.T) {
 		input      string
 		expected   string
 	}{
-		// With no input
+		// When testing with no input
 		{
 			4,
 			false,
@@ -91,14 +144,14 @@ func TestWrapper(t *testing.T) {
 
 	for i, test := range tests {
 		wrapper := wordwrap.Wrapper(test.limit, test.breakWords)
-		wrapped := wrapper(test.input)
+		actual := wrapper(test.input)
 
-		if wrapped != test.expected {
+		if actual != test.expected {
 			t.Fatalf(
-				"Wrapper for case %d did not return expected result.\nExpected:\n%s\nActual:\n%s\n",
+				"Result for case %d did not match expected result.\nExpected:\n%s\nActual:\n%s\n",
 				i+1,
 				test.expected,
-				wrapped,
+				actual,
 			)
 		}
 	}
