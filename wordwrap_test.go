@@ -71,13 +71,21 @@ func TestWrapper(t *testing.T) {
 			"Test text",
 			"Test\ntext",
 		},
-		// Slightly more realistic data
+		// When given slightly more realistic data
 		// Should be broken properly
 		{
 			40,
 			false,
 			"This is a bunch of text that should be split at somewhere near 40 characters.",
 			"This is a bunch of text that should be\nsplit at somewhere near 40 characters.",
+		},
+		// When given text with a line break in it
+		// It should rebuild the string with spaces in, remember, we're intentionally being simple
+		{
+			20,
+			true,
+			"Test\n\ntext",
+			"Test text",
 		},
 	}
 
